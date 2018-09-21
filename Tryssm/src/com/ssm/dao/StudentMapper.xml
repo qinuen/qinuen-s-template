@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 认为是mapper接口的全限定名称 -->
+<mapper namespace="com.cmp.ssm.dao.StudentDao">
+
+	<select id="selectById" 
+		parameterType="int" 
+		resultType="Student">
+		select 
+			stud_id as id,name,email,phone
+		from 
+			students 
+		where 
+			stud_id=#{id}	
+	</select>
+
+	<select id="selectAll" 
+		resultType="Student">
+		select 
+			stud_id as id,name,email,phone
+		from 
+			students 
+	</select>
+	
+	<insert id="insertStudent" parameterType="Student">
+		INSERT INTO 
+			`students`
+			 (`NAME`, `EMAIL`, `PHONE`, `ADDR_ID`) 
+		VALUES
+			 (#{name},#{email},#{phone},'1001')
+	</insert>
+	
+	
+
+</mapper>
