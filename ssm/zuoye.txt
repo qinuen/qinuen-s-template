@@ -1,0 +1,14 @@
+1、自行整合
+2、完整的增删改查
+	add.jsp
+	update.jsp
+	list.jsp
+		delete
+		find
+			byId
+			byName 模糊
+	要求：
+		数据表最少三张
+			班级表
+			学生表
+			课程表		
