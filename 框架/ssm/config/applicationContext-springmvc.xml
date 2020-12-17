@@ -8,7 +8,20 @@
       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<!--1.开启Springioc 自动扫描注解包 -->
-	<context:component-scan base-package="com.cmp.ssm.controller" />
+	<mvc:annotation-driven >
+       <mvc:message-converters register-defaults="true">
+           <bean class="org.springframework.http.converter.StringHttpMessageConverter" >
+               <property name = "supportedMediaTypes">
+                   <list>
+                       <value>application/json;charset=utf-8</value>
+                       <value>text/html;charset=utf-8</value>
+                       <!-- application 可以在任意 form 表单里面 enctype 属性默认找到 -->
+                       <value>application/x-www-form-urlencoded</value>
+                   </list>
+               </property>
+           </bean>
+           <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" ></bean>
+       </mvc:message-converters>
 
 	<!--2. 开启注解 -->
 	<mvc:annotation-driven/>
